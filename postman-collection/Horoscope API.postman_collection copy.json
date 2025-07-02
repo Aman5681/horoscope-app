@@ -1,0 +1,161 @@
+{
+	"info": {
+		"_postman_id": "86df397e-a99e-482e-ac54-c10c2be0b2cb",
+		"name": "Horoscope API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25759033"
+	},
+	"item": [
+		{
+			"name": "SignUp",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if (pm.response.code === 201) {",
+							"  const json = pm.response.json();",
+							"  pm.environment.set(\"auth_token\", json.token);",
+							"}",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"jhon.doe@yopmail.com\",\n    \"password\": \"jshondoe\",\n    \"name\": \"Jhon Doe\",\n    \"birthdate\": \"06-03-2001\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://horoscope-app-x0ie.onrender.com/auth/signup",
+					"protocol": "https",
+					"host": [
+						"horoscope-app-x0ie",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if (pm.response.code === 200) {",
+							"  const json = pm.response.json();",
+							"  pm.environment.set(\"auth_token\", json.token);",
+							"}",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"jhon.doe@yopmail.com\",\n    \"password\": \"jhondoe\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://horoscope-app-x0ie.onrender.com/auth/login",
+					"protocol": "https",
+					"host": [
+						"horoscope-app-x0ie",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Today's Horoscope",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{auth_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://horoscope-app-x0ie.onrender.com/horoscope/today",
+					"protocol": "https",
+					"host": [
+						"horoscope-app-x0ie",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"horoscope",
+						"today"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get History",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{auth_token}}"
+					}
+				],
+				"url": {
+					"raw": "https://horoscope-app-x0ie.onrender.com/horoscope/history",
+					"protocol": "https",
+					"host": [
+						"horoscope-app-x0ie",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"horoscope",
+						"history"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
