@@ -43,6 +43,7 @@ npm start         # Start compiled server
 Visit Swagger UI:
 ```
 http://localhost:3000/api-docs
+https://horoscope-app-x0ie.onrender.com/api-docs/
 ```
 
 ---
