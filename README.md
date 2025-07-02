@@ -2,6 +2,9 @@
 
 A RESTful API built with TypeScript, Express, and MongoDB that provides daily and historical horoscope data for users based on their zodiac sign. It includes JWT-based authentication and Swagger API documentation.
 
+This backend web service is hosted on Render
+https://horoscope-app-x0ie.onrender.com
+
 ---
 
 ## 🚀 Setup Instructions
