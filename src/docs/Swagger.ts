@@ -12,6 +12,9 @@ export const swaggerOptions: swaggerJSDoc.Options = {
       {
         url: 'http://localhost:3000',
       },
+      {
+        url: 'https://horoscope-app-x0ie.onrender.com/',
+      }
     ],
     components: {
       securitySchemes: {
